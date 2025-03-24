@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
-
+// Import the UserDetailPage
 
 class CustomDrawer extends StatelessWidget {
   final int selectedIndex;
@@ -23,27 +23,33 @@ class CustomDrawer extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
-          // User profile section
-          UserAccountsDrawerHeader(
-            accountName: Text(
-              userName,
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-            accountEmail: Text(
-              Provider.of<AuthProvider>(context).user?.email ?? "No email",
-            ),
-            currentAccountPicture: CircleAvatar(
-              backgroundImage: NetworkImage(userAvatar),
-            ),
-            decoration: const BoxDecoration(
-              color: Colors.blue,
+          // User profile section with GestureDetector to make it clickable
+          GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/user-profile');
+            },
+            child: UserAccountsDrawerHeader(
+              accountName: Text(
+                userName,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              accountEmail: Text(
+                Provider.of<AuthProvider>(context).user?.email ?? "No email",
+              ),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(userAvatar),
+              ),
+              decoration: const BoxDecoration(
+                color: Colors.blue,
+              ),
+
             ),
           ),
 
-
           const Divider(height: 1, thickness: 1),
 
-          // Pages section
+          // Rest of your drawer code remains the same
           Expanded(
             child: ListView(
               padding: EdgeInsets.zero,
@@ -73,24 +79,8 @@ class CustomDrawer extends StatelessWidget {
               leading: const Icon(Icons.logout),
               title: const Text('Logout'),
               onTap: () async {
-                // Close the drawer
-                // Navigator.pop(context);
-                // actions: [
-                //             IconButton(
-                //               icon: const Icon(Icons.logout),
-                //               onPressed: () async {
-                //                 await Provider.of<AuthProvider>(context, listen: false).signOut();
-                //                 Navigator.of(context).pushReplacementNamed('/login');
-                //               },
-                //             ),
-                //           ]
                 await Provider.of<AuthProvider>(context, listen: false).signOut();
                 Navigator.of(context).pushReplacementNamed('/login');
-                // Sign out the user
-                // final authProvider = Provider.of<AuthProvider>(context, listen: false);
-                // authProvider.signOut();
-
-                // No need to navigate - the AuthWrapper will handle this automatically
               },
             ),
           ),
