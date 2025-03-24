@@ -46,30 +46,27 @@ class AuthProvider with ChangeNotifier {
     return _error.isEmpty;
   }
 
-  // In auth_provider.dart - modify the register method
   Future<bool> register(String email, String password, String idNumber, String enrollmentNumber) async {
     if (_isLoading) return false;
-
-    print("Starting registration process"); // Add this
-
+    print("Starting registration process");
     try {
       _isLoading = true;
       _error = '';
       notifyListeners();
-      print("Set isLoading to true"); // Add this
+      print("Set isLoading to true");
 
       // Check if a user with this ID already exists in the database
       final databaseRef = FirebaseDatabase.instance.ref('users/$idNumber');
       final snapshot = await databaseRef.get();
-      print("Database check completed"); // Add this
+      print("Database check completed");
 
       if (snapshot.exists) {
-        print("User ID already exists"); // Add this
+        print("User ID already exists");
         _error = 'A user with this ID number already exists';
         return false;
       }
 
-      print("Creating user with Firebase Auth"); // Add this
+      print("Creating user with Firebase Auth");
       // Create user with email and password
       final userCredential = await _auth.createUserWithEmailAndPassword(
           email: email,
@@ -77,10 +74,10 @@ class AuthProvider with ChangeNotifier {
       ).timeout(const Duration(seconds: 15));
 
       _user = userCredential.user;
-      print("User created successfully"); // Add this
+      print("User created successfully");
 
       // Store user data in Realtime Database
-      print("Storing user data in database"); // Add this
+      print("Storing user data in database");
       await databaseRef.set({
         'uid': _user!.uid,
         'email': email,
@@ -88,20 +85,18 @@ class AuthProvider with ChangeNotifier {
         'enrollmentNumber': enrollmentNumber,
         'createdAt': ServerValue.timestamp,
       });
-
-      print("Registration complete"); // Add this
+      print("Registration complete");
       return true;
     } catch (e) {
-      print("Error during registration: $e"); // Add this
+      print("Error during registration: $e");
       _error = _handleAuthError(e);
       return false;
     } finally {
       _isLoading = false;
-      print("Set isLoading to false in finally block"); // Add this
+      print("Set isLoading to false in finally block");
       notifyListeners();
     }
   }
-
 
   String _handleAuthError(dynamic error) {
     if (error is FirebaseAuthException) {
