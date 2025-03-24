@@ -43,7 +43,7 @@ class _RegisterPageState extends State<RegisterPage> {
         if (!mounted) return;
 
         if (success) {
-          Navigator.pushReplacementNamed(context, '/home');
+          Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(authProvider.error)),

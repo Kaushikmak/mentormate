@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../widgets/custom_drawer.dart';
 import 'mentors_page.dart';
 import 'settings_page.dart';
@@ -41,10 +42,35 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onHorizontalDragEnd: (details) {
-        if (details.primaryVelocity! > 0) {
-          _scaffoldKey.currentState?.openDrawer();
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) async {
+        if (didPop) {
+          return;
+        }
+
+        // Show a confirmation dialog
+        final shouldExit = await showDialog<bool>(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Exit App', style: TextStyle(fontWeight: FontWeight.bold),),
+            content: const Text('Are you sure you want to exit?', style: TextStyle(fontWeight: FontWeight.normal),),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: const Text('Cancel'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(true),
+                child: const Text('Exit'),
+              ),
+            ],
+          ),
+        ) ?? false;
+
+        // If user confirms, exit the app
+        if (shouldExit) {
+          SystemNavigator.pop();
         }
       },
       child: Scaffold(

@@ -118,4 +118,40 @@ class AuthProvider with ChangeNotifier {
       notifyListeners();
     }
   }
+
+  // Add this method to your AuthProvider class
+
+  Future<bool> resetPassword(String email) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      // If successful, return true
+      return true;
+    } on FirebaseAuthException catch (e) {
+      // Handle specific Firebase Auth errors
+      switch (e.code) {
+        case 'user-not-found':
+          _setError('No user found with this email address.');
+          break;
+        case 'invalid-email':
+          _setError('Invalid email address format.');
+          break;
+        default:
+          _setError('Error: ${e.message}');
+      }
+      return false;
+    } catch (e) {
+      // Handle other errors
+      _setError('An unexpected error occurred: ${e.toString()}');
+      return false;
+    }
+  }
+
+// Assuming you have a method like this to set errors
+// If not, you'll need to adapt to how your class handles errors
+  void _setError(String message) {
+    // Replace this with however your AuthProvider sets error messages
+    // For example, you might have:
+    // _error = message;
+    // notifyListeners();
+  }
 }
