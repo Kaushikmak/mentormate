@@ -1,0 +1,18 @@
+{
+  "batch_1": [
+    {"time": "8:00 AM - 9:00 AM", "subject": "Machine Learning", "location": "Room 401"},
+    {"time": "9:00 AM - 10:00 AM", "subject": "Cloud Computing", "location": "Room 402"},
+    {"time": "10:00 AM - 11:00 AM", "subject": "Capstone Project", "location": "Lab 501"},
+    {"time": "11:00 AM - 12:00 PM", "subject": "Cybersecurity", "location": "Room 403"},
+    {"time": "1:00 PM - 2:00 PM", "subject": "Big Data Analytics", "location": "Room 404"},
+    {"time": "2:00 PM - 3:00 PM", "subject": "Entrepreneurship", "location": "Room 405"}
+  ],
+  "batch_2": [
+    {"time": "8:00 AM - 9:00 AM", "subject": "Cloud Computing", "location": "Room 402"},
+    {"time": "9:00 AM - 10:00 AM", "subject": "Machine Learning", "location": "Room 401"},
+    {"time": "10:00 AM - 11:00 AM", "subject": "Capstone Project", "location": "Lab 501"},
+    {"time": "11:00 AM - 12:00 PM", "subject": "Cybersecurity", "location": "Room 403"},
+    {"time": "1:00 PM - 2:00 PM", "subject": "Big Data Analytics", "location": "Room 404"},
+    {"time": "2:00 PM - 3:00 PM", "subject": "Entrepreneurship", "location": "Room 405"}
+  ]
+}

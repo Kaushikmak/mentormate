@@ -1,0 +1,68 @@
+{
+  "mentors": [
+    {
+      "id": "1",
+      "name": "OM VAYKUL",
+      "imageUrl": "https://via.placeholder.com/150",
+      "specialization": "Mobile Development",
+      "bio": "Experienced Flutter developer with 5+ years of experience building mobile apps.",
+      "rating": 4.8
+    },
+    {
+      "id": "2",
+      "name": "HEMA SRI PRIYA",
+      "imageUrl": "https://via.placeholder.com/150",
+      "specialization": "UI/UX Design",
+      "bio": "Creative designer specializing in user-centered design principles.",
+      "rating": 4.9
+    },
+    {
+      "id": "3",
+      "name": "MAYANK BARI",
+      "imageUrl": "https://via.placeholder.com/150",
+      "specialization": "Backend Development",
+      "bio": "Expert in building scalable backend systems and APIs.",
+      "rating": 4.7
+    },
+    {
+      "id": "4",
+      "name": "SONALI GAIKWAD",
+      "imageUrl": "https://via.placeholder.com/150",
+      "specialization": "Data Science",
+      "bio": "Data scientist with expertise in machine learning and AI.",
+      "rating": 4.6
+    },
+    {
+      "id": "5",
+      "name": "SARANSH DWIVEDI",
+      "imageUrl": "https://via.placeholder.com/150",
+      "specialization": "DevOps",
+      "bio": "Specializes in CI/CD pipelines and cloud infrastructure.",
+      "rating": 4.5
+    },
+    {
+      "id": "6",
+      "name": "KARTHIKEYA RUGVEDI",
+      "imageUrl": "https://via.placeholder.com/150",
+      "specialization": "Web Development",
+      "bio": "Full-stack web developer with expertise in React and Node.js.",
+      "rating": 4.7
+    },
+    {
+      "id": "7",
+      "name": "KRUTIKA GONDKAR",
+      "imageUrl": "https://via.placeholder.com/150",
+      "specialization": "Project Management",
+      "bio": "Certified project manager with experience in agile methodologies.",
+      "rating": 4.8
+    },
+    {
+      "id": "8",
+      "name": "JASKARAN SINGH ARORA",
+      "imageUrl": "https://via.placeholder.com/150",
+      "specialization": "Quality Assurance",
+      "bio": "QA engineer specializing in automated testing frameworks.",
+      "rating": 4.6
+    }
+  ]
+}

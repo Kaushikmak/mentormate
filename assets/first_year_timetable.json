@@ -1,0 +1,18 @@
+{
+  "batch_1": [
+    {"time": "8:00 AM - 9:00 AM", "subject": "Mathematics I", "location": "Room 101"},
+    {"time": "9:00 AM - 10:00 AM", "subject": "Physics I", "location": "Room 102"},
+    {"time": "10:00 AM - 11:00 AM", "subject": "Chemistry I", "location": "Room 103"},
+    {"time": "11:00 AM - 12:00 PM", "subject": "Computer Science Basics", "location": "Lab 201"},
+    {"time": "1:00 PM - 2:00 PM", "subject": "English", "location": "Room 104"},
+    {"time": "2:00 PM - 3:00 PM", "subject": "Physical Education", "location": "Sports Ground"}
+  ],
+  "batch_2": [
+    {"time": "8:00 AM - 9:00 AM", "subject": "Physics I", "location": "Room 102"},
+    {"time": "9:00 AM - 10:00 AM", "subject": "Mathematics I", "location": "Room 101"},
+    {"time": "10:00 AM - 11:00 AM", "subject": "Chemistry I", "location": "Room 103"},
+    {"time": "11:00 AM - 12:00 PM", "subject": "Computer Science Basics", "location": "Lab 201"},
+    {"time": "1:00 PM - 2:00 PM", "subject": "English", "location": "Room 104"},
+    {"time": "2:00 PM - 3:00 PM", "subject": "Physical Education", "location": "Sports Ground"}
+  ]
+}
