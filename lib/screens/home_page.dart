@@ -50,23 +50,32 @@ class _HomePageState extends State<HomePage> {
         }
 
         // Show a confirmation dialog
-        final shouldExit = await showDialog<bool>(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: const Text('Exit App', style: TextStyle(fontWeight: FontWeight.bold),),
-            content: const Text('Are you sure you want to exit?', style: TextStyle(fontWeight: FontWeight.normal),),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(false),
-                child: const Text('Cancel'),
-              ),
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(true),
-                child: const Text('Exit'),
-              ),
-            ],
-          ),
-        ) ?? false;
+        final shouldExit =
+            await showDialog<bool>(
+              context: context,
+              builder:
+                  (context) => AlertDialog(
+                    title: const Text(
+                      'Exit App',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    content: const Text(
+                      'Are you sure you want to exit?',
+                      style: TextStyle(fontWeight: FontWeight.normal),
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(false),
+                        child: const Text('Cancel'),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(true),
+                        child: const Text('Exit'),
+                      ),
+                    ],
+                  ),
+            ) ??
+            false;
 
         // If user confirms, exit the app
         if (shouldExit) {
@@ -83,22 +92,25 @@ class _HomePageState extends State<HomePage> {
               Text(
                 "Mentor",
                 style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold
+                  color: Colors.blue,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
                 "Mate",
                 style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold
+                  color: Colors.green,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],
           ),
-
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(Icons.question_answer),
         ),
         drawer: CustomDrawer(
           selectedIndex: _selectedIndex,
