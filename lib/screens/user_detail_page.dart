@@ -98,7 +98,8 @@ class _UserDetailPageState extends State<UserDetailPage> {
       final String idNumber = userData?['idNumber'] ?? 'unknown';
 
       // Create a reference to the file location in Firebase Storage
-      final storageRef = FirebaseStorage.instance.ref()
+      final storageRef = FirebaseStorage.instance
+          .ref()
           .child('user_avatars')
           .child('$idNumber.jpg');
 
@@ -110,10 +111,9 @@ class _UserDetailPageState extends State<UserDetailPage> {
 
       // Update the user's data in the Realtime Database
       if (userKey != null) {
-        await FirebaseDatabase.instance
-            .ref("users")
-            .child(userKey!)
-            .update({'avatarUrl': downloadUrl});
+        await FirebaseDatabase.instance.ref("users").child(userKey!).update({
+          'avatarUrl': downloadUrl,
+        });
 
         // Update local state
         setState(() {
@@ -129,73 +129,88 @@ class _UserDetailPageState extends State<UserDetailPage> {
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('User Profile'),
-      ),
-      body: isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : error != null
-          ? Center(child: Text(error!, style: const TextStyle(color: Colors.red)))
-          : SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // Replace the CircleAvatar with this Stack to add edit functionality
-              Center(
-                child: Stack(
-                  children: [
-                    CircleAvatar(
-                      radius: 60,
-                      backgroundColor: Colors.grey[200],
-                      backgroundImage: userData?['avatarUrl'] != null
-                          ? NetworkImage(userData!['avatarUrl'])
-                          : const NetworkImage("https://via.placeholder.com/150"),
-                    ),
-                    Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColor,
-                          shape: BoxShape.circle,
-                        ),
-                        child: IconButton(
-                          icon: const Icon(Icons.camera_alt, color: Colors.white),
-                          onPressed: _pickImage,
+      appBar: AppBar(title: const Text('User Profile')),
+      body:
+          isLoading
+              ? const Center(child: CircularProgressIndicator())
+              : error != null
+              ? Center(
+                child: Text(error!, style: const TextStyle(color: Colors.red)),
+              )
+              : SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      // Replace the CircleAvatar with this Stack to add edit functionality
+                      Center(
+                        child: Stack(
+                          children: [
+                            CircleAvatar(
+                              radius: 60,
+                              backgroundColor: Colors.grey[200],
+                              backgroundImage:
+                                  userData?['avatarUrl'] != null
+                                      ? NetworkImage(userData!['avatarUrl'])
+                                      : const NetworkImage(
+                                        "https://via.placeholder.com/150",
+                                      ),
+                            ),
+                            Positioned(
+                              bottom: 0,
+                              right: 0,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context).primaryColor,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: IconButton(
+                                  icon: const Icon(
+                                    Icons.camera_alt,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: _pickImage,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 24),
+                      Text(
+                        userData?['email'] ?? 'No Email',
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      _buildInfoCard(
+                        'ID Number',
+                        userData?['idNumber'] ?? 'Not provided',
+                      ),
+                      _buildInfoCard(
+                        'Enrollment Number',
+                        userData?['enrollmentNumber'] ?? 'Not provided',
+                      ),
+                      _buildInfoCard(
+                        'Account Created',
+                        _formatTimestamp(userData?['createdAt']),
+                      ),
+                      const SizedBox(height: 24),
+                      ElevatedButton(
+                        onPressed: (){},
+                        child: const Text('Edit Profile'),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              const SizedBox(height: 24),
-              Text(
-                userData?['email'] ?? 'No Email',
-                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8),
-              _buildInfoCard('ID Number', userData?['idNumber'] ?? 'Not provided'),
-              _buildInfoCard('Enrollment Number', userData?['enrollmentNumber'] ?? 'Not provided'),
-              _buildInfoCard('Account Created', _formatTimestamp(userData?['createdAt'])),
-              const SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: () {
-                  // Add functionality to edit profile
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Edit profile functionality coming soon')),
-                  );
-                },
-                child: const Text('Edit Profile'),
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 
@@ -210,12 +225,7 @@ class _UserDetailPageState extends State<UserDetailPage> {
               '$label: ',
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
-            Expanded(
-              child: Text(
-                value,
-                style: const TextStyle(fontSize: 16),
-              ),
-            ),
+            Expanded(child: Text(value, style: const TextStyle(fontSize: 16))),
           ],
         ),
       ),

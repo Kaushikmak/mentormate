@@ -1,0 +1,14 @@
+[
+  {
+    "question": "What is Flutter?",
+    "answer": "Flutter is an open-source UI software development kit created by Google. It is used to develop cross-platform applications for Android, iOS, Linux, macOS, Windows, and the web from a single codebase."
+  },
+  {
+    "question": "What are the advantages of using Flutter?",
+    "answer": "Some advantages of using Flutter include fast development, expressive and flexible UI, native performance, and the ability to create cross-platform apps with a single codebase."
+  },
+  {
+    "question": "Is Flutter only for mobile development?",
+    "answer": "No, Flutter can be used to develop applications for mobile, web, and desktop platforms, including Android, iOS, Windows, macOS, and Linux."
+  }
+]

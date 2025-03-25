@@ -7,6 +7,7 @@ import 'resources_page.dart';
 import 'department_page.dart';
 import 'extracurricular_activities_page.dart';
 import 'schedule_page.dart';
+import 'faq_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -108,15 +109,32 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.question_answer),
-        ),
+
         drawer: CustomDrawer(
           selectedIndex: _selectedIndex,
           onItemSelected: onNavigationItemSelected,
         ),
-        body: _pages[_selectedIndex],
+        body: Stack(
+          children: [
+            _pages[_selectedIndex],
+            Positioned(
+              right: 16,
+              bottom: 16,
+              child: Opacity(
+                opacity: _selectedIndex == 0 ? 1.0 : 0.0,
+                child: IgnorePointer(
+                  ignoring: _selectedIndex != 0,
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>FAQPage()));
+                    },
+                    child: Icon(Icons.question_answer),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
