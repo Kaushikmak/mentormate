@@ -7,10 +7,20 @@ import 'screens/login_page.dart';
 import 'screens/register_page.dart';
 import 'screens/home_page.dart';
 import 'screens/user_detail_page.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_in_app_messaging/firebase_in_app_messaging.dart';
+import 'messge_handler/firebase_messaging_handler.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
+  // Set up background message handler
+  FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
+
+  // Initialize Firebase In-App Messaging
+  final fiam = FirebaseInAppMessaging.instance;
+
   runApp(
     MultiProvider(
       providers: [
@@ -22,8 +32,24 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final FirebaseMessagingHandler _messagingHandler = FirebaseMessagingHandler();
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize Firebase messaging after build is complete
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _messagingHandler.initialize(context);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,38 +85,13 @@ class AuthWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authProvider = Provider.of<AuthProvider>(context);
-
     if (authProvider.isLoading) {
       return const Scaffold(
         body: Center(child: CircularProgressIndicator()),
       );
     }
-
     return authProvider.isAuthenticated
         ? const HomePage()
         : const LoginPage();
   }
 }
-
-// import 'package:flutter/material.dart';
-// import 'map/map_page.dart'; // Import your MapPage file
-//
-// void main() {
-//   runApp(const MyApp());
-// }
-//
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Google Maps',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: const MapPage(), // Set MapPage as the home page
-//     );
-//   }
-// }
-

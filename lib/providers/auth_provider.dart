@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:async';
 
 class AuthProvider with ChangeNotifier {
@@ -29,13 +30,12 @@ class AuthProvider with ChangeNotifier {
       _isLoading = true;
       _error = '';
       notifyListeners();
-
       final userCredential = await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       ).timeout(const Duration(seconds: 15));
-
       _user = userCredential.user;
+      return true;
     } catch (e) {
       _error = _handleAuthError(e);
       return false;
@@ -43,7 +43,6 @@ class AuthProvider with ChangeNotifier {
       _isLoading = false;
       notifyListeners();
     }
-    return _error.isEmpty;
   }
 
   Future<bool> register(String email, String password, String idNumber, String enrollmentNumber) async {
@@ -72,7 +71,6 @@ class AuthProvider with ChangeNotifier {
           email: email,
           password: password
       ).timeout(const Duration(seconds: 15));
-
       _user = userCredential.user;
       print("User created successfully");
 
@@ -119,39 +117,175 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
-  // Add this method to your AuthProvider class
-
   Future<bool> resetPassword(String email) async {
+    if (_isLoading) return false;
+
     try {
+      _isLoading = true;
+      _error = '';
+      notifyListeners();
+
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-      // If successful, return true
       return true;
     } on FirebaseAuthException catch (e) {
       // Handle specific Firebase Auth errors
       switch (e.code) {
         case 'user-not-found':
-          _setError('No user found with this email address.');
+          _error = 'No user found with this email address.';
           break;
         case 'invalid-email':
-          _setError('Invalid email address format.');
+          _error = 'Invalid email address format.';
           break;
         default:
-          _setError('Error: ${e.message}');
+          _error = 'Error: ${e.message}';
       }
       return false;
     } catch (e) {
       // Handle other errors
-      _setError('An unexpected error occurred: ${e.toString()}');
+      _error = 'An unexpected error occurred: ${e.toString()}';
       return false;
+    } finally {
+      _isLoading = false;
+      notifyListeners();
     }
   }
 
-// Assuming you have a method like this to set errors
-// If not, you'll need to adapt to how your class handles errors
   void _setError(String message) {
-    // Replace this with however your AuthProvider sets error messages
-    // For example, you might have:
-    // _error = message;
-    // notifyListeners();
+    _error = message;
+    notifyListeners();
+  }
+
+  Future<bool> updateUserData(String userKey, Map<String, dynamic> data) async {
+    if (_isLoading) return false;
+
+    try {
+      _isLoading = true;
+      _error = '';
+      notifyListeners();
+
+      await FirebaseDatabase.instance.ref("users").child(userKey).update(data);
+      return true;
+    } catch (e) {
+      _error = 'Failed to update user data: ${e.toString()}';
+      return false;
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  Future<bool> reauthenticateUser(String password) async {
+    if (_isLoading) return false;
+
+    try {
+      _isLoading = true;
+      _error = '';
+      notifyListeners();
+
+      if (_user == null || _user!.email == null) {
+        _error = 'No user is logged in or email is missing';
+        return false;
+      }
+
+      // Create credential
+      AuthCredential credential = EmailAuthProvider.credential(
+        email: _user!.email!,
+        password: password,
+      );
+
+      // Reauthenticate
+      await _user!.reauthenticateWithCredential(credential);
+      return true;
+    } catch (e) {
+      _error = _handleAuthError(e);
+      return false;
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  Future<bool> deleteAccount() async {
+    if (_isLoading) return false;
+
+    try {
+      _isLoading = true;
+      _error = '';
+      notifyListeners();
+
+      if (_user == null) {
+        _error = 'No user is logged in';
+        return false;
+      }
+
+      // Find user data in database
+      final databaseRef = FirebaseDatabase.instance.ref("users");
+      final query = databaseRef.orderByChild("uid").equalTo(_user!.uid);
+      final snapshot = await query.get();
+
+      if (snapshot.exists) {
+        // Get the user key
+        final data = snapshot.value as Map;
+        final key = data.keys.first;
+        final userInfo = data[key] as Map;
+
+        // Delete user avatar if exists
+        if (userInfo['avatarUrl'] != null) {
+          try {
+            final storageRef = FirebaseStorage.instance
+                .refFromURL(userInfo['avatarUrl']);
+            await storageRef.delete();
+          } catch (e) {
+            print("Error deleting avatar: $e");
+          }
+        }
+
+        // Delete user data from database
+        await databaseRef.child(key.toString()).remove();
+      }
+
+      // Delete the user account
+      await _user!.delete();
+      _user = null;
+      return true;
+
+    } catch (e) {
+      _error = _handleAuthError(e);
+      return false;
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  Future<bool> changePassword(String currentPassword, String newPassword) async {
+    if (_isLoading) return false;
+
+    try {
+      _isLoading = true;
+      _error = '';
+      notifyListeners();
+
+      if (_user == null || _user!.email == null) {
+        _error = 'No user is logged in or email is missing';
+        return false;
+      }
+
+      // Reauthenticate first
+      bool reauth = await reauthenticateUser(currentPassword);
+      if (!reauth) {
+        return false;
+      }
+
+      // Change password
+      await _user!.updatePassword(newPassword);
+      return true;
+    } catch (e) {
+      _error = _handleAuthError(e);
+      return false;
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
   }
 }
