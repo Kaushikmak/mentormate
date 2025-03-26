@@ -81,13 +81,14 @@ class CustomDrawer extends StatelessWidget {
                 _buildNavItem(context, 'Resources', Icons.book, 3),
                 _buildNavItem(context, 'Department', Icons.school, 4),
                 _buildNavItem(context, 'Activities', Icons.sports_basketball, 5),
+                _buildNavItem(context, 'VNIT Map', Icons.location_on, 6),
               ],
             ),
           ),
           const Divider(height: 1, thickness: 1),
           Padding(
             padding: const EdgeInsets.only(bottom: 8.0),
-            child: _buildNavItem(context, 'Settings', Icons.settings, 6),
+            child: _buildNavItem(context, 'Settings', Icons.settings, 7),
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 16.0),

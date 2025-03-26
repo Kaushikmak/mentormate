@@ -8,6 +8,7 @@ import 'department_page.dart';
 import 'extracurricular_activities_page.dart';
 import 'schedule_page.dart';
 import 'faq_page.dart';
+import '../map/map_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -31,6 +32,7 @@ class _HomePageState extends State<HomePage> {
       const ResourcesPage(),
       const DepartmentPage(),
       const ExtracurricularActivitiesPage(),
+      const MapPage(),
       const SettingsPage(),
     ];
   }

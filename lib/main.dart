@@ -71,3 +71,26 @@ class AuthWrapper extends StatelessWidget {
         : const LoginPage();
   }
 }
+
+// import 'package:flutter/material.dart';
+// import 'map/map_page.dart'; // Import your MapPage file
+//
+// void main() {
+//   runApp(const MyApp());
+// }
+//
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Google Maps',
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//       ),
+//       home: const MapPage(), // Set MapPage as the home page
+//     );
+//   }
+// }
+
