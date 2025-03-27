@@ -86,6 +86,7 @@ class _HomePageState extends State<HomePage> {
         }
       },
       child: Scaffold(
+        drawerEnableOpenDragGesture: true,
         key: _scaffoldKey,
         appBar: AppBar(
           centerTitle: true,

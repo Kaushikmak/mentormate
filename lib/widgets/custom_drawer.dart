@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart' as fba;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/auth_provider.dart';
+import '../providers/auth_provider.dart' as local_auth; // Fix ambiguous import
 import 'package:firebase_database/firebase_database.dart';
 import 'package:mentormate/caching/avatar_cache_manager.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -18,24 +19,28 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<local_auth.AuthProvider>(context);
+    final userId = authProvider.user?.uid;
+
     return Drawer(
       child: Column(
         children: [
-          // User profile section with GestureDetector to make it clickable
           GestureDetector(
             onTap: () {
               Navigator.pop(context);
               Navigator.pushNamed(context, '/user-profile');
             },
             child: FutureBuilder<Map<String, dynamic>?>(
-              future: _getUserData(Provider.of<AuthProvider>(context).user?.uid),
-              builder: (context, AsyncSnapshot<Map<String, dynamic>?> snapshot) {
+              future: _getUserData(userId),
+              builder: (context, snapshot) {
                 String avatarUrl = "https://via.placeholder.com/150";
                 String userName = "User";
+                String email = authProvider.user?.email ?? "No email";
 
                 if (snapshot.hasData && snapshot.data != null) {
                   avatarUrl = snapshot.data!['avatarUrl'] ?? avatarUrl;
-                  userName = snapshot.data!['email'] ?? "User";
+                  userName = snapshot.data!['Name'] ?? "User";
+                  email = snapshot.data!['email'] ?? email;
                 }
 
                 return UserAccountsDrawerHeader(
@@ -43,13 +48,11 @@ class CustomDrawer extends StatelessWidget {
                     userName,
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  accountEmail: Text(
-                    Provider.of<AuthProvider>(context).user?.email ?? "No email",
-                  ),
+                  accountEmail: Text(email),
                   currentAccountPicture: FutureBuilder<String>(
                     future: AvatarCacheManager.getAvatarPath(
-                        Provider.of<AuthProvider>(context).user?.uid ?? '',
-                        avatarUrl
+                      userId ?? '',
+                      avatarUrl,
                     ),
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.done && snapshot.data != null) {
@@ -82,21 +85,19 @@ class CustomDrawer extends StatelessWidget {
                 _buildNavItem(context, 'Department', Icons.school, 4),
                 _buildNavItem(context, 'Activities', Icons.sports_basketball, 5),
                 _buildNavItem(context, 'VNIT Map', Icons.location_on, 6),
+
               ],
             ),
           ),
           const Divider(height: 1, thickness: 1),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 8.0),
-            child: _buildNavItem(context, 'Settings', Icons.settings, 7),
-          ),
+          _buildNavItem(context, 'Settings', Icons.settings, 7),
           Padding(
             padding: const EdgeInsets.only(bottom: 16.0),
             child: ListTile(
               leading: const Icon(Icons.logout),
               title: const Text('Logout'),
               onTap: () async {
-                await Provider.of<AuthProvider>(context, listen: false).signOut();
+                await authProvider.signOut();
                 Navigator.of(context).pushReplacementNamed('/login');
               },
             ),
@@ -122,20 +123,21 @@ class CustomDrawer extends StatelessWidget {
     if (userId == null) return null;
 
     try {
-      final databaseRef = FirebaseDatabase.instance.ref("users");
-      final query = databaseRef.orderByChild("uid").equalTo(userId);
-      final snapshot = await query.get();
+      final userRef = FirebaseDatabase.instance.ref("users/$userId");
+      final defaultRef = FirebaseDatabase.instance.ref("default_user_data/$userId");
 
-      if (snapshot.exists) {
-        final data = snapshot.value as Map<dynamic, dynamic>;
-        final userKey = data.keys.first;
-        final userInfo = data[userKey] as Map<dynamic, dynamic>;
-        return Map<String, dynamic>.from(userInfo);
-      }
+      final userSnapshot = await userRef.get();
+      final defaultSnapshot = await defaultRef.get();
+
+      if (!userSnapshot.exists && !defaultSnapshot.exists) return null;
+
+      final userData = userSnapshot.exists ? Map<String, dynamic>.from(userSnapshot.value as Map) : {};
+      final defaultData = defaultSnapshot.exists ? Map<String, dynamic>.from(defaultSnapshot.value as Map) : {};
+
+      return {...userData, ...defaultData};
     } catch (e) {
-      print("Error fetching user data: $e");
+      print('🔥 Error fetching user data: $e');
+      return null;
     }
-
-    return null;
   }
 }
