@@ -1,15 +1,14 @@
-import 'package:firebase_auth/firebase_auth.dart' as fba;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/auth_provider.dart' as local_auth; // Fix ambiguous import
-import 'package:firebase_database/firebase_database.dart';
-import 'package:mentormate/caching/avatar_cache_manager.dart';
+import '../providers/auth_provider.dart' as local_auth;
 import 'package:cached_network_image/cached_network_image.dart';
-import 'dart:io';
+import '../services/userdata.dart';
+import 'package:logger/logger.dart';
 
 class CustomDrawer extends StatelessWidget {
   final int selectedIndex;
   final Function(int) onItemSelected;
+  final Logger _logger = Logger();
 
   CustomDrawer({
     super.key,
@@ -31,7 +30,7 @@ class CustomDrawer extends StatelessWidget {
               Navigator.pushNamed(context, '/user-profile');
             },
             child: FutureBuilder<Map<String, dynamic>?>(
-              future: _getUserData(userId),
+              future: _fetchUserData(),
               builder: (context, snapshot) {
                 String avatarUrl = "https://via.placeholder.com/150";
                 String userName = "User";
@@ -43,33 +42,45 @@ class CustomDrawer extends StatelessWidget {
                   email = snapshot.data!['email'] ?? email;
                 }
 
-                return UserAccountsDrawerHeader(
-                  accountName: Text(
-                    userName,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  accountEmail: Text(email),
-                  currentAccountPicture: FutureBuilder<String>(
-                    future: AvatarCacheManager.getAvatarPath(
-                      userId ?? '',
-                      avatarUrl,
+                return Container(
+                  color: Colors.blue,
+                  child: SafeArea(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Center(
+                            child: _buildAvatar(userId, avatarUrl),
+
+                          ),
+                          const SizedBox(height: 10),
+                          Center(
+                            child: Text(
+                              userName,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 5),
+                          Center(
+                            child: Text(
+                              email,
+                              style: const TextStyle(
+                                color: Colors.white70,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.done && snapshot.data != null) {
-                        return CircleAvatar(
-                          backgroundImage: FileImage(File(snapshot.data!)),
-                        );
-                      } else {
-                        return CircleAvatar(
-                          backgroundImage: CachedNetworkImageProvider(avatarUrl),
-                        );
-                      }
-                    },
-                  ),
-                  decoration: const BoxDecoration(
-                    color: Colors.blue,
                   ),
                 );
+
               },
             ),
           ),
@@ -85,7 +96,6 @@ class CustomDrawer extends StatelessWidget {
                 _buildNavItem(context, 'Department', Icons.school, 4),
                 _buildNavItem(context, 'Activities', Icons.sports_basketball, 5),
                 _buildNavItem(context, 'VNIT Map', Icons.location_on, 6),
-
               ],
             ),
           ),
@@ -96,13 +106,39 @@ class CustomDrawer extends StatelessWidget {
             child: ListTile(
               leading: const Icon(Icons.logout),
               title: const Text('Logout'),
-              onTap: () async {
-                await authProvider.signOut();
-                Navigator.of(context).pushReplacementNamed('/login');
-              },
+              onTap: () => _handleLogout(context, authProvider),
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Future<Map<String, dynamic>?> _fetchUserData() async {
+    try {
+      return await FirebaseUserService().getMergedUserData();
+    } catch (e) {
+      _logger.e('Error fetching user data');
+      return null;
+    }
+  }
+
+  Widget _buildAvatar(String? userId, String avatarUrl) {
+    return Center(
+      child: CachedNetworkImage(
+
+        imageUrl: avatarUrl,
+        imageBuilder: (context, imageProvider) => CircleAvatar(
+          radius: 40,
+          backgroundImage: imageProvider,
+        ),
+        placeholder: (context, url) => CircleAvatar(
+          backgroundColor: Colors.grey[200],
+          child: CircularProgressIndicator(),
+        ),
+        errorWidget: (context, url, error) => CircleAvatar(
+          backgroundImage: AssetImage('assets/user.png'),
+        ),
       ),
     );
   }
@@ -119,25 +155,15 @@ class CustomDrawer extends StatelessWidget {
     );
   }
 
-  Future<Map<String, dynamic>?> _getUserData(String? userId) async {
-    if (userId == null) return null;
-
+  void _handleLogout(BuildContext context, local_auth.AuthProvider authProvider) async {
     try {
-      final userRef = FirebaseDatabase.instance.ref("users/$userId");
-      final defaultRef = FirebaseDatabase.instance.ref("default_user_data/$userId");
-
-      final userSnapshot = await userRef.get();
-      final defaultSnapshot = await defaultRef.get();
-
-      if (!userSnapshot.exists && !defaultSnapshot.exists) return null;
-
-      final userData = userSnapshot.exists ? Map<String, dynamic>.from(userSnapshot.value as Map) : {};
-      final defaultData = defaultSnapshot.exists ? Map<String, dynamic>.from(defaultSnapshot.value as Map) : {};
-
-      return {...userData, ...defaultData};
+      await authProvider.signOut();
+      Navigator.of(context).pushReplacementNamed('/login');
     } catch (e) {
-      print('🔥 Error fetching user data: $e');
-      return null;
+      _logger.e('Error during logout');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Failed to logout. Please try again.')),
+      );
     }
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:mentormate/repositories/user_data_repository.dart';
+import 'package:mentormate/services/sync_service.dart';
 import 'package:provider/provider.dart';
 import 'providers/auth_provider.dart';
 import 'providers/theme_provider.dart';
@@ -15,17 +17,18 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  // Set up background message handler
-  FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
-
-  // Initialize Firebase In-App Messaging
-  final fiam = FirebaseInAppMessaging.instance;
+  final userRepository = UserDataRepository();
+  await userRepository.initializeHive();
 
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        Provider(create: (_) => userRepository),
+        ProxyProvider<UserDataRepository, SyncService>(
+          update: (_, repo, __) => SyncService(repo),
+        ),
       ],
       child: const MyApp(),
     ),

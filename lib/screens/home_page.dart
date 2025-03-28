@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import '../models/user_data.dart';
+import '../providers/auth_provider.dart';
+import '../repositories/user_data_repository.dart';
+import '../services/sync_service.dart';
 import '../widgets/custom_drawer.dart';
 import 'mentors_page.dart';
 import 'settings_page.dart';
@@ -21,6 +26,7 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   late final List<Widget> _pages;
+  UserData? userData;
 
   @override
   void initState() {
@@ -35,6 +41,23 @@ class _HomePageState extends State<HomePage> {
       const MapPage(),
       const SettingsPage(),
     ];
+    _loadUserData();
+    _syncUserData();
+  }
+
+  void _syncUserData() {
+    final syncService = Provider.of<SyncService>(context, listen: false);
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+    if (authProvider.user != null) {
+      syncService.syncUserData(authProvider.user!.uid);
+    }
+  }
+
+  void _loadUserData() {
+    final userRepository = Provider.of<UserDataRepository>(context, listen: false);
+    setState(() {
+      userData = userRepository.getUserData();
+    });
   }
 
   void onNavigationItemSelected(int index) {
