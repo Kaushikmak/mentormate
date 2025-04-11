@@ -7,7 +7,7 @@
 
 # MENTORMATE
 
-<em></em>
+<em>Connecting Mentors and Mentees for a Seamless Campus Experience</em>
 
 <!-- BADGES -->
 <img src="https://img.shields.io/github/license/Kaushikmak/mentormate?style=default&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
@@ -46,65 +46,71 @@
 
 ## Overview
 
+MentorMate is an Android/iOS application built with Firebase, designed to connect mentors (seniors) with mentees (juniors). This app aims to provide a comprehensive platform for students, integrating features like a custom Google Campus Map, personalized schedules, secure login, and information on clubs and extracurricular activities, all in one place.
 
+**Note:** This project is currently under maintenance and is not yet completed.
 
 ---
 
 ## Features
 
-<code>❯ REPLACE-ME</code>
+- **Mentor-Mentee Connection:** Connects senior students with junior students for mentorship.
+- **Custom Google Campus Map:** Integrated campus map for easy navigation.
+- **Customized Schedule:** Allows students to create and manage personalized schedules.
+- **Login:** Secure login functionality for user authentication.
+- **Clubs:** Provides information and resources related to various campus clubs.
+- **All-in-One Platform:** Combines essential student resources in a single application.
 
 ---
 
 ## Project Structure
 
-```sh
 └── mentormate/
-    ├── README.md
-    ├── analysis_options.yaml
-    ├── android
-    │   ├── .gitignore
-    │   ├── app
-    │   ├── build.gradle.kts
-    │   ├── gradle
-    │   ├── gradle.properties
-    │   └── settings.gradle.kts
-    ├── assets
-    │   ├── faqs.json
-    │   ├── first_year_timetable.json
-    │   ├── fourth_year_timetable.json
-    │   ├── images
-    │   ├── mentor_details.json
-    │   ├── second_year_timetable.json
-    │   ├── third_year_timetable.json
-    │   └── user.png
-    ├── devtools_options.yaml
-    ├── ios
-    │   ├── .gitignore
-    │   ├── Flutter
-    │   ├── Runner
-    │   ├── Runner.xcodeproj
-    │   ├── Runner.xcworkspace
-    │   └── RunnerTests
-    ├── lib
-    │   ├── caching
-    │   ├── main.dart
-    │   ├── map
-    │   ├── messge_handler
-    │   ├── models
-    │   ├── providers
-    │   ├── repositories
-    │   ├── screens
-    │   ├── services
-    │   └── widgets
-    ├── pubspec.lock
-    ├── pubspec.yaml
-    └── test
-        └── widget_test.dart
-```
+├── README.md
+├── analysis_options.yaml
+├── android
+│ ├── .gitignore
+│ ├── app
+│ ├── build.gradle.kts
+│ ├── gradle
+│ ├── gradle.properties
+│ └── settings.gradle.kts
+├── assets
+│ ├── faqs.json
+│ ├── first_year_timetable.json
+│ ├── fourth_year_timetable.json
+│ ├── images
+│ ├── mentor_details.json
+│ ├── second_year_timetable.json
+│ ├── third_year_timetable.json
+│ └── user.png
+├── devtools_options.yaml
+├── ios
+│ ├── .gitignore
+│ ├── Flutter
+│ ├── Runner
+│ ├── Runner.xcodeproj
+│ ├── Runner.xcworkspace
+│ └── RunnerTests
+├── lib
+│ ├── caching
+│ ├── main.dart
+│ ├── map
+│ ├── messge_handler
+│ ├── models
+│ ├── providers
+│ ├── repositories
+│ ├── screens
+│ └── services
+│ └── widgets
+├── pubspec.lock
+├── pubspec.yaml
+└── test
+└── widget_test.dart
+
+text
 
 ### Project Index
-
 <details open>
 	<summary><b><code>MENTORMATE/</code></b></summary>
 	<!-- __root__ Submodule -->
@@ -122,15 +128,15 @@
 			</thead>
 				<tr style='border-bottom: 1px solid #eee;'>
 					<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/pubspec.yaml'>pubspec.yaml</a></b></td>
-					<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+					<td style='padding: 8px;'>Configuration file for Flutter projects, specifying dependencies and project metadata.</td>
 				</tr>
 				<tr style='border-bottom: 1px solid #eee;'>
 					<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/devtools_options.yaml'>devtools_options.yaml</a></b></td>
-					<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+					<td style='padding: 8px;'>Configuration file for Dart DevTools, specifying settings for debugging and profiling.</td>
 				</tr>
 				<tr style='border-bottom: 1px solid #eee;'>
 					<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/analysis_options.yaml'>analysis_options.yaml</a></b></td>
-					<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+					<td style='padding: 8px;'>Configuration file for Dart static analysis, defining rules and guidelines for code quality.</td>
 				</tr>
 			</table>
 		</blockquote>
@@ -150,7 +156,7 @@
 			</thead>
 				<tr style='border-bottom: 1px solid #eee;'>
 					<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/test/widget_test.dart'>widget_test.dart</a></b></td>
-					<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+					<td style='padding: 8px;'>Basic widget test file for Flutter applications.</td>
 				</tr>
 			</table>
 		</blockquote>
@@ -170,7 +176,7 @@
 			</thead>
 				<tr style='border-bottom: 1px solid #eee;'>
 					<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/main.dart'>main.dart</a></b></td>
-					<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+					<td style='padding: 8px;'>Entry point of the Flutter application, responsible for initializing and running the app.</td>
 				</tr>
 			</table>
 			<!-- caching Submodule -->
@@ -188,7 +194,7 @@
 					</thead>
 						<tr style='border-bottom: 1px solid #eee;'>
 							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/caching/avatar_cache_manager.dart'>avatar_cache_manager.dart</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+							<td style='padding: 8px;'>Manages the caching of user avatars in the application.</td>
 						</tr>
 					</table>
 				</blockquote>
@@ -208,11 +214,11 @@
 					</thead>
 						<tr style='border-bottom: 1px solid #eee;'>
 							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/widgets/mentor_card.dart'>mentor_card.dart</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+							<td style='padding: 8px;'>Flutter widget to display mentor information in a card format.</td>
 						</tr>
 						<tr style='border-bottom: 1px solid #eee;'>
 							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/widgets/custom_drawer.dart'>custom_drawer.dart</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+							<td style='padding: 8px;'>A custom-designed drawer widget for Flutter applications.</td>
 						</tr>
 					</table>
 				</blockquote>
@@ -232,10 +238,26 @@
 					</thead>
 						<tr style='border-bottom: 1px solid #eee;'>
 							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/models/user_data.g.dart'>user_data.g.dart</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+							<td style='padding: 8px;'>Generated code for serializing and deserializing UserData objects in Dart using `json_serializable`.</td>
 						</tr>
 						<tr style='border-bottom: 1px solid #eee;'>
 							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/models/user_data.dart'>user_data.dart</a></b></td>
+							<td style='padding: 8px;'>Defines the `UserData` model class in Dart, which includes information about a user such as ID, name, email, and profile image.</td>
+						</tr>
+						<tr style='border-bottom: 1px solid #eee;'>
+							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/models/timetable_entry.dart'>timetable_entry.dart</a></b></td>
+							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+						</tr>
+						<tr style='border-bottom: 1px solid #eee;'>
+							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/models/faq_item.dart'>faq_item.dart</a></b></td>
+							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+						</tr>
+						<tr style='border-bottom: 1px solid #eee;'>
+							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/models/extracurricular.dart'>extracurricular.dart</a></b></td>
+							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+						</tr>
+						<tr style='border-bottom: 1px solid #eee;'>
+							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/models/department.dart'>department.dart</a></b></td>
 							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
 						</tr>
 						<tr style='border-bottom: 1px solid #eee;'>
@@ -260,11 +282,11 @@
 					</thead>
 						<tr style='border-bottom: 1px solid #eee;'>
 							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/providers/theme_provider.dart'>theme_provider.dart</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+							<td style='padding: 8px;'>Manages the theme settings of the application.</td>
 						</tr>
 						<tr style='border-bottom: 1px solid #eee;'>
 							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/providers/auth_provider.dart'>auth_provider.dart</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+							<td style='padding: 8px;'>Handles authentication logic in the application.</td>
 						</tr>
 					</table>
 				</blockquote>
@@ -353,6 +375,26 @@
 					</table>
 				</blockquote>
 			</details>
+			<!-- services Submodule -->
+			<details>
+				<summary><b>services</b></summary>
+				<blockquote>
+					<div class='directory-path' style='padding: 8px 0; color: #666;'>
+						<code><b>⦿ lib.services</b></code>
+					<table style='width: 100%; border-collapse: collapse;'>
+					<thead>
+						<tr style='background-color: #f8f9fa;'>
+							<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
+							<th style='text-align: left; padding: 8px;'>Summary</th>
+						</tr>
+					</thead>
+						<tr style='border-bottom: 1px solid #eee;'>
+							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/services/auth_service.dart'>auth_service.dart</a></b></td>
+							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+						</tr>
+					</table>
+				</blockquote>
+			</details>
 			<!-- map Submodule -->
 			<details>
 				<summary><b>map</b></summary>
@@ -387,282 +429,10 @@
 						</tr>
 					</thead>
 						<tr style='border-bottom: 1px solid #eee;'>
-							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/messge_handler/firebase_messaging_handler.dart'>firebase_messaging_handler.dart</a></b></td>
+							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/messge_handler/app_message_handler.dart'>app_message_handler.dart</a></b></td>
 							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
 						</tr>
 					</table>
-				</blockquote>
-			</details>
-			<!-- services Submodule -->
-			<details>
-				<summary><b>services</b></summary>
-				<blockquote>
-					<div class='directory-path' style='padding: 8px 0; color: #666;'>
-						<code><b>⦿ lib.services</b></code>
-					<table style='width: 100%; border-collapse: collapse;'>
-					<thead>
-						<tr style='background-color: #f8f9fa;'>
-							<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-							<th style='text-align: left; padding: 8px;'>Summary</th>
-						</tr>
-					</thead>
-						<tr style='border-bottom: 1px solid #eee;'>
-							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/services/userdata.dart'>userdata.dart</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-						</tr>
-						<tr style='border-bottom: 1px solid #eee;'>
-							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/services/sync_service.dart'>sync_service.dart</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-						</tr>
-						<tr style='border-bottom: 1px solid #eee;'>
-							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/lib/services/auth_service.dart'>auth_service.dart</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-						</tr>
-					</table>
-				</blockquote>
-			</details>
-		</blockquote>
-	</details>
-	<!-- android Submodule -->
-	<details>
-		<summary><b>android</b></summary>
-		<blockquote>
-			<div class='directory-path' style='padding: 8px 0; color: #666;'>
-				<code><b>⦿ android</b></code>
-			<table style='width: 100%; border-collapse: collapse;'>
-			<thead>
-				<tr style='background-color: #f8f9fa;'>
-					<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-					<th style='text-align: left; padding: 8px;'>Summary</th>
-				</tr>
-			</thead>
-				<tr style='border-bottom: 1px solid #eee;'>
-					<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/android/build.gradle.kts'>build.gradle.kts</a></b></td>
-					<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-				</tr>
-				<tr style='border-bottom: 1px solid #eee;'>
-					<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/android/settings.gradle.kts'>settings.gradle.kts</a></b></td>
-					<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-				</tr>
-			</table>
-			<!-- app Submodule -->
-			<details>
-				<summary><b>app</b></summary>
-				<blockquote>
-					<div class='directory-path' style='padding: 8px 0; color: #666;'>
-						<code><b>⦿ android.app</b></code>
-					<table style='width: 100%; border-collapse: collapse;'>
-					<thead>
-						<tr style='background-color: #f8f9fa;'>
-							<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-							<th style='text-align: left; padding: 8px;'>Summary</th>
-						</tr>
-					</thead>
-						<tr style='border-bottom: 1px solid #eee;'>
-							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/android/app/build.gradle.kts'>build.gradle.kts</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-						</tr>
-					</table>
-					<!-- src Submodule -->
-					<details>
-						<summary><b>src</b></summary>
-						<blockquote>
-							<div class='directory-path' style='padding: 8px 0; color: #666;'>
-								<code><b>⦿ android.app.src</b></code>
-							<!-- main Submodule -->
-							<details>
-								<summary><b>main</b></summary>
-								<blockquote>
-									<div class='directory-path' style='padding: 8px 0; color: #666;'>
-										<code><b>⦿ android.app.src.main</b></code>
-									<table style='width: 100%; border-collapse: collapse;'>
-									<thead>
-										<tr style='background-color: #f8f9fa;'>
-											<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-											<th style='text-align: left; padding: 8px;'>Summary</th>
-										</tr>
-									</thead>
-										<tr style='border-bottom: 1px solid #eee;'>
-											<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/android/app/src/main/AndroidManifest.xml'>AndroidManifest.xml</a></b></td>
-											<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-										</tr>
-									</table>
-									<!-- res Submodule -->
-									<details>
-										<summary><b>res</b></summary>
-										<blockquote>
-											<div class='directory-path' style='padding: 8px 0; color: #666;'>
-												<code><b>⦿ android.app.src.main.res</b></code>
-											<!-- drawable Submodule -->
-											<details>
-												<summary><b>drawable</b></summary>
-												<blockquote>
-													<div class='directory-path' style='padding: 8px 0; color: #666;'>
-														<code><b>⦿ android.app.src.main.res.drawable</b></code>
-													<table style='width: 100%; border-collapse: collapse;'>
-													<thead>
-														<tr style='background-color: #f8f9fa;'>
-															<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-															<th style='text-align: left; padding: 8px;'>Summary</th>
-														</tr>
-													</thead>
-														<tr style='border-bottom: 1px solid #eee;'>
-															<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/android/app/src/main/res/drawable/launch_background.xml'>launch_background.xml</a></b></td>
-															<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-														</tr>
-													</table>
-												</blockquote>
-											</details>
-											<!-- drawable-v21 Submodule -->
-											<details>
-												<summary><b>drawable-v21</b></summary>
-												<blockquote>
-													<div class='directory-path' style='padding: 8px 0; color: #666;'>
-														<code><b>⦿ android.app.src.main.res.drawable-v21</b></code>
-													<table style='width: 100%; border-collapse: collapse;'>
-													<thead>
-														<tr style='background-color: #f8f9fa;'>
-															<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-															<th style='text-align: left; padding: 8px;'>Summary</th>
-														</tr>
-													</thead>
-														<tr style='border-bottom: 1px solid #eee;'>
-															<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/android/app/src/main/res/drawable-v21/launch_background.xml'>launch_background.xml</a></b></td>
-															<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-														</tr>
-													</table>
-												</blockquote>
-											</details>
-											<!-- values Submodule -->
-											<details>
-												<summary><b>values</b></summary>
-												<blockquote>
-													<div class='directory-path' style='padding: 8px 0; color: #666;'>
-														<code><b>⦿ android.app.src.main.res.values</b></code>
-													<table style='width: 100%; border-collapse: collapse;'>
-													<thead>
-														<tr style='background-color: #f8f9fa;'>
-															<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-															<th style='text-align: left; padding: 8px;'>Summary</th>
-														</tr>
-													</thead>
-														<tr style='border-bottom: 1px solid #eee;'>
-															<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/android/app/src/main/res/values/styles.xml'>styles.xml</a></b></td>
-															<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-														</tr>
-													</table>
-												</blockquote>
-											</details>
-											<!-- values-night Submodule -->
-											<details>
-												<summary><b>values-night</b></summary>
-												<blockquote>
-													<div class='directory-path' style='padding: 8px 0; color: #666;'>
-														<code><b>⦿ android.app.src.main.res.values-night</b></code>
-													<table style='width: 100%; border-collapse: collapse;'>
-													<thead>
-														<tr style='background-color: #f8f9fa;'>
-															<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-															<th style='text-align: left; padding: 8px;'>Summary</th>
-														</tr>
-													</thead>
-														<tr style='border-bottom: 1px solid #eee;'>
-															<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/android/app/src/main/res/values-night/styles.xml'>styles.xml</a></b></td>
-															<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-														</tr>
-													</table>
-												</blockquote>
-											</details>
-										</blockquote>
-									</details>
-									<!-- kotlin Submodule -->
-									<details>
-										<summary><b>kotlin</b></summary>
-										<blockquote>
-											<div class='directory-path' style='padding: 8px 0; color: #666;'>
-												<code><b>⦿ android.app.src.main.kotlin</b></code>
-											<!-- com Submodule -->
-											<details>
-												<summary><b>com</b></summary>
-												<blockquote>
-													<div class='directory-path' style='padding: 8px 0; color: #666;'>
-														<code><b>⦿ android.app.src.main.kotlin.com</b></code>
-													<!-- example Submodule -->
-													<details>
-														<summary><b>example</b></summary>
-														<blockquote>
-															<div class='directory-path' style='padding: 8px 0; color: #666;'>
-																<code><b>⦿ android.app.src.main.kotlin.com.example</b></code>
-															<!-- mentormate Submodule -->
-															<details>
-																<summary><b>mentormate</b></summary>
-																<blockquote>
-																	<div class='directory-path' style='padding: 8px 0; color: #666;'>
-																		<code><b>⦿ android.app.src.main.kotlin.com.example.mentormate</b></code>
-																	<table style='width: 100%; border-collapse: collapse;'>
-																	<thead>
-																		<tr style='background-color: #f8f9fa;'>
-																			<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-																			<th style='text-align: left; padding: 8px;'>Summary</th>
-																		</tr>
-																	</thead>
-																		<tr style='border-bottom: 1px solid #eee;'>
-																			<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/android/app/src/main/kotlin/com/example/mentormate/MainActivity.kt'>MainActivity.kt</a></b></td>
-																			<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-																		</tr>
-																	</table>
-																</blockquote>
-															</details>
-														</blockquote>
-													</details>
-												</blockquote>
-											</details>
-										</blockquote>
-									</details>
-								</blockquote>
-							</details>
-							<!-- profile Submodule -->
-							<details>
-								<summary><b>profile</b></summary>
-								<blockquote>
-									<div class='directory-path' style='padding: 8px 0; color: #666;'>
-										<code><b>⦿ android.app.src.profile</b></code>
-									<table style='width: 100%; border-collapse: collapse;'>
-									<thead>
-										<tr style='background-color: #f8f9fa;'>
-											<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-											<th style='text-align: left; padding: 8px;'>Summary</th>
-										</tr>
-									</thead>
-										<tr style='border-bottom: 1px solid #eee;'>
-											<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/android/app/src/profile/AndroidManifest.xml'>AndroidManifest.xml</a></b></td>
-											<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-										</tr>
-									</table>
-								</blockquote>
-							</details>
-							<!-- debug Submodule -->
-							<details>
-								<summary><b>debug</b></summary>
-								<blockquote>
-									<div class='directory-path' style='padding: 8px 0; color: #666;'>
-										<code><b>⦿ android.app.src.debug</b></code>
-									<table style='width: 100%; border-collapse: collapse;'>
-									<thead>
-										<tr style='background-color: #f8f9fa;'>
-											<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-											<th style='text-align: left; padding: 8px;'>Summary</th>
-										</tr>
-									</thead>
-										<tr style='border-bottom: 1px solid #eee;'>
-											<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/android/app/src/debug/AndroidManifest.xml'>AndroidManifest.xml</a></b></td>
-											<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-										</tr>
-									</table>
-								</blockquote>
-							</details>
-						</blockquote>
-					</details>
 				</blockquote>
 			</details>
 		</blockquote>
@@ -673,26 +443,18 @@
 		<blockquote>
 			<div class='directory-path' style='padding: 8px 0; color: #666;'>
 				<code><b>⦿ ios</b></code>
-			<!-- RunnerTests Submodule -->
-			<details>
-				<summary><b>RunnerTests</b></summary>
-				<blockquote>
-					<div class='directory-path' style='padding: 8px 0; color: #666;'>
-						<code><b>⦿ ios.RunnerTests</b></code>
-					<table style='width: 100%; border-collapse: collapse;'>
-					<thead>
-						<tr style='background-color: #f8f9fa;'>
-							<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-							<th style='text-align: left; padding: 8px;'>Summary</th>
-						</tr>
-					</thead>
-						<tr style='border-bottom: 1px solid #eee;'>
-							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/RunnerTests/RunnerTests.swift'>RunnerTests.swift</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-						</tr>
-					</table>
-				</blockquote>
-			</details>
+			<table style='width: 100%; border-collapse: collapse;'>
+			<thead>
+				<tr style='background-color: #f8f9fa;'>
+					<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
+					<th style='text-align: left; padding: 8px;'>Summary</th>
+				</tr>
+			</thead>
+				<tr style='border-bottom: 1px solid #eee;'>
+					<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/.gitignore'>.gitignore</a></b></td>
+					<td style='padding: 8px;'>Git ignore file for the iOS project, specifying intentionally untracked files that Git should ignore.</td>
+				</tr>
+			</table>
 			<!-- Runner Submodule -->
 			<details>
 				<summary><b>Runner</b></summary>
@@ -707,134 +469,22 @@
 						</tr>
 					</thead>
 						<tr style='border-bottom: 1px solid #eee;'>
-							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner/Runner-Bridging-Header.h'>Runner-Bridging-Header.h</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner/Configs/AppInfo.xcconfig'>AppInfo.xcconfig</a></b></td>
+							<td style='padding: 8px;'>Configuration file for app-specific information in an Xcode project.</td>
 						</tr>
 						<tr style='border-bottom: 1px solid #eee;'>
-							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner/Info.plist'>Info.plist</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json'>Contents.json</a></b></td>
+							<td style='padding: 8px;'>JSON file that lists the different sizes and resolutions of the app icon for various iOS devices.</td>
 						</tr>
 						<tr style='border-bottom: 1px solid #eee;'>
 							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner/AppDelegate.swift'>AppDelegate.swift</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+							<td style='padding: 8px;'>The application delegate for the iOS app, handling app lifecycle events.</td>
 						</tr>
-					</table>
-					<!-- Base.lproj Submodule -->
-					<details>
-						<summary><b>Base.lproj</b></summary>
-						<blockquote>
-							<div class='directory-path' style='padding: 8px 0; color: #666;'>
-								<code><b>⦿ ios.Runner.Base.lproj</b></code>
-							<table style='width: 100%; border-collapse: collapse;'>
-							<thead>
-								<tr style='background-color: #f8f9fa;'>
-									<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-									<th style='text-align: left; padding: 8px;'>Summary</th>
-								</tr>
-							</thead>
-								<tr style='border-bottom: 1px solid #eee;'>
-									<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner/Base.lproj/LaunchScreen.storyboard'>LaunchScreen.storyboard</a></b></td>
-									<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-								</tr>
-								<tr style='border-bottom: 1px solid #eee;'>
-									<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner/Base.lproj/Main.storyboard'>Main.storyboard</a></b></td>
-									<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-								</tr>
-							</table>
-						</blockquote>
-					</details>
-					<!-- Assets.xcassets Submodule -->
-					<details>
-						<summary><b>Assets.xcassets</b></summary>
-						<blockquote>
-							<div class='directory-path' style='padding: 8px 0; color: #666;'>
-								<code><b>⦿ ios.Runner.Assets.xcassets</b></code>
-							<!-- LaunchImage.imageset Submodule -->
-							<details>
-								<summary><b>LaunchImage.imageset</b></summary>
-								<blockquote>
-									<div class='directory-path' style='padding: 8px 0; color: #666;'>
-										<code><b>⦿ ios.Runner.Assets.xcassets.LaunchImage.imageset</b></code>
-									<table style='width: 100%; border-collapse: collapse;'>
-									<thead>
-										<tr style='background-color: #f8f9fa;'>
-											<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-											<th style='text-align: left; padding: 8px;'>Summary</th>
-										</tr>
-									</thead>
-										<tr style='border-bottom: 1px solid #eee;'>
-											<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json'>Contents.json</a></b></td>
-											<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-										</tr>
-									</table>
-								</blockquote>
-							</details>
-							<!-- AppIcon.appiconset Submodule -->
-							<details>
-								<summary><b>AppIcon.appiconset</b></summary>
-								<blockquote>
-									<div class='directory-path' style='padding: 8px 0; color: #666;'>
-										<code><b>⦿ ios.Runner.Assets.xcassets.AppIcon.appiconset</b></code>
-									<table style='width: 100%; border-collapse: collapse;'>
-									<thead>
-										<tr style='background-color: #f8f9fa;'>
-											<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-											<th style='text-align: left; padding: 8px;'>Summary</th>
-										</tr>
-									</thead>
-										<tr style='border-bottom: 1px solid #eee;'>
-											<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json'>Contents.json</a></b></td>
-											<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-										</tr>
-									</table>
-								</blockquote>
-							</details>
-						</blockquote>
-					</details>
-				</blockquote>
-			</details>
-			<!-- Runner.xcworkspace Submodule -->
-			<details>
-				<summary><b>Runner.xcworkspace</b></summary>
-				<blockquote>
-					<div class='directory-path' style='padding: 8px 0; color: #666;'>
-						<code><b>⦿ ios.Runner.xcworkspace</b></code>
-					<table style='width: 100%; border-collapse: collapse;'>
-					<thead>
-						<tr style='background-color: #f8f9fa;'>
-							<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-							<th style='text-align: left; padding: 8px;'>Summary</th>
-						</tr>
-					</thead>
 						<tr style='border-bottom: 1px solid #eee;'>
-							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner.xcworkspace/contents.xcworkspacedata'>contents.xcworkspacedata</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner/Info.plist'>Info.plist</a></b></td>
+							<td style='padding: 8px;'>Property list file that contains essential configuration information for an iOS app.</td>
 						</tr>
 					</table>
-					<!-- xcshareddata Submodule -->
-					<details>
-						<summary><b>xcshareddata</b></summary>
-						<blockquote>
-							<div class='directory-path' style='padding: 8px 0; color: #666;'>
-								<code><b>⦿ ios.Runner.xcworkspace.xcshareddata</b></code>
-							<table style='width: 100%; border-collapse: collapse;'>
-							<thead>
-								<tr style='background-color: #f8f9fa;'>
-									<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-									<th style='text-align: left; padding: 8px;'>Summary</th>
-								</tr>
-							</thead>
-								<tr style='border-bottom: 1px solid #eee;'>
-									<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist'>IDEWorkspaceChecks.plist</a></b></td>
-									<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-								</tr>
-								<tr style='border-bottom: 1px solid #eee;'>
-									<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings'>WorkspaceSettings.xcsettings</a></b></td>
-									<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-								</tr>
-							</table>
-						</blockquote>
-					</details>
 				</blockquote>
 			</details>
 			<!-- Flutter Submodule -->
@@ -852,15 +502,7 @@
 					</thead>
 						<tr style='border-bottom: 1px solid #eee;'>
 							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Flutter/AppFrameworkInfo.plist'>AppFrameworkInfo.plist</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-						</tr>
-						<tr style='border-bottom: 1px solid #eee;'>
-							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Flutter/Debug.xcconfig'>Debug.xcconfig</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-						</tr>
-						<tr style='border-bottom: 1px solid #eee;'>
-							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Flutter/Release.xcconfig'>Release.xcconfig</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+							<td style='padding: 8px;'>Property list file that provides information about the Flutter framework in an iOS app.</td>
 						</tr>
 					</table>
 				</blockquote>
@@ -880,236 +522,52 @@
 					</thead>
 						<tr style='border-bottom: 1px solid #eee;'>
 							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner.xcodeproj/project.pbxproj'>project.pbxproj</a></b></td>
-							<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
+							<td style='padding: 8px;'>Xcode project file that contains build settings, file references, and other project-related information.</td>
+						</tr>
+						<tr style='border-bottom: 1px solid #eee;'>
+							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme'>Runner.xcscheme</a></b></td>
+							<td style='padding: 8px;'>Xcode scheme file that defines build and run settings for the app.</td>
 						</tr>
 					</table>
-					<!-- project.xcworkspace Submodule -->
-					<details>
-						<summary><b>project.xcworkspace</b></summary>
-						<blockquote>
-							<div class='directory-path' style='padding: 8px 0; color: #666;'>
-								<code><b>⦿ ios.Runner.xcodeproj.project.xcworkspace</b></code>
-							<table style='width: 100%; border-collapse: collapse;'>
-							<thead>
-								<tr style='background-color: #f8f9fa;'>
-									<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-									<th style='text-align: left; padding: 8px;'>Summary</th>
-								</tr>
-							</thead>
-								<tr style='border-bottom: 1px solid #eee;'>
-									<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata'>contents.xcworkspacedata</a></b></td>
-									<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-								</tr>
-							</table>
-							<!-- xcshareddata Submodule -->
-							<details>
-								<summary><b>xcshareddata</b></summary>
-								<blockquote>
-									<div class='directory-path' style='padding: 8px 0; color: #666;'>
-										<code><b>⦿ ios.Runner.xcodeproj.project.xcworkspace.xcshareddata</b></code>
-									<table style='width: 100%; border-collapse: collapse;'>
-									<thead>
-										<tr style='background-color: #f8f9fa;'>
-											<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-											<th style='text-align: left; padding: 8px;'>Summary</th>
-										</tr>
-									</thead>
-										<tr style='border-bottom: 1px solid #eee;'>
-											<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist'>IDEWorkspaceChecks.plist</a></b></td>
-											<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-										</tr>
-										<tr style='border-bottom: 1px solid #eee;'>
-											<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings'>WorkspaceSettings.xcsettings</a></b></td>
-											<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-										</tr>
-									</table>
-								</blockquote>
-							</details>
-						</blockquote>
-					</details>
-					<!-- xcshareddata Submodule -->
-					<details>
-						<summary><b>xcshareddata</b></summary>
-						<blockquote>
-							<div class='directory-path' style='padding: 8px 0; color: #666;'>
-								<code><b>⦿ ios.Runner.xcodeproj.xcshareddata</b></code>
-							<!-- xcschemes Submodule -->
-							<details>
-								<summary><b>xcschemes</b></summary>
-								<blockquote>
-									<div class='directory-path' style='padding: 8px 0; color: #666;'>
-										<code><b>⦿ ios.Runner.xcodeproj.xcshareddata.xcschemes</b></code>
-									<table style='width: 100%; border-collapse: collapse;'>
-									<thead>
-										<tr style='background-color: #f8f9fa;'>
-											<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
-											<th style='text-align: left; padding: 8px;'>Summary</th>
-										</tr>
-									</thead>
-										<tr style='border-bottom: 1px solid #eee;'>
-											<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme'>Runner.xcscheme</a></b></td>
-											<td style='padding: 8px;'>Code>❯ REPLACE-ME</code></td>
-										</tr>
-									</table>
-								</blockquote>
-							</details>
-						</blockquote>
-					</details>
 				</blockquote>
 			</details>
-		</blockquote>
-	</details>
-</details>
-
----
-
-## Getting Started
-
-### Prerequisites
-
-This project requires the following dependencies:
-
-- **Programming Language:** Dart
-- **Package Manager:** Pub, Gradle
-
-### Installation
-
-Build mentormate from the source and intsall dependencies:
-
-1. **Clone the repository:**
-
-    ```sh
-    ❯ git clone https://github.com/Kaushikmak/mentormate
-    ```
-
-2. **Navigate to the project directory:**
-
-    ```sh
-    ❯ cd mentormate
-    ```
-
-3. **Install the dependencies:**
-
-<!-- SHIELDS BADGE CURRENTLY DISABLED -->
-	<!-- [![pub][pub-shield]][pub-link] -->
-	<!-- REFERENCE LINKS -->
-	<!-- [pub-shield]: https://img.shields.io/badge/Dart-0175C2.svg?style={badge_style}&logo=dart&logoColor=white -->
-	<!-- [pub-link]: https://dart.dev/ -->
-
-	**Using [pub](https://dart.dev/):**
-
-	```sh
-	❯ pub get
-	```
-<!-- SHIELDS BADGE CURRENTLY DISABLED -->
-	<!-- [![gradle][gradle-shield]][gradle-link] -->
-	<!-- REFERENCE LINKS -->
-	<!-- [gradle-shield]: None -->
-	<!-- [gradle-link]: None -->
-
-	**Using [gradle](None):**
-
-	```sh
-	❯ echo 'INSERT-INSTALL-COMMAND-HERE'
-	```
-
-### Usage
-
-Run the project with:
-
-**Using [pub](https://dart.dev/):**
-```sh
-dart {entrypoint}
-```
-**Using [gradle](None):**
-```sh
-echo 'INSERT-RUN-COMMAND-HERE'
-```
-
-### Testing
-
-Mentormate uses the {__test_framework__} test framework. Run the test suite with:
-
-**Using [pub](https://dart.dev/):**
-```sh
-pub run test
-```
-**Using [gradle](None):**
-```sh
-echo 'INSERT-TEST-COMMAND-HERE'
-```
-
----
-
-## Roadmap
-
-- [X] **`Task 1`**: <strike>Implement feature one.</strike>
-- [ ] **`Task 2`**: Implement feature two.
-- [ ] **`Task 3`**: Implement feature three.
-
----
-
-## Contributing
-
-- **💬 [Join the Discussions](https://github.com/Kaushikmak/mentormate/discussions)**: Share your insights, provide feedback, or ask questions.
-- **🐛 [Report Issues](https://github.com/Kaushikmak/mentormate/issues)**: Submit bugs found or log feature requests for the `mentormate` project.
-- **💡 [Submit Pull Requests](https://github.com/Kaushikmak/mentormate/blob/main/CONTRIBUTING.md)**: Review open PRs, and submit your own PRs.
-
-<details closed>
-<summary>Contributing Guidelines</summary>
-
-1. **Fork the Repository**: Start by forking the project repository to your github account.
-2. **Clone Locally**: Clone the forked repository to your local machine using a git client.
-   ```sh
-   git clone https://github.com/Kaushikmak/mentormate
-   ```
-3. **Create a New Branch**: Always work on a new branch, giving it a descriptive name.
-   ```sh
-   git checkout -b new-feature-x
-   ```
-4. **Make Your Changes**: Develop and test your changes locally.
-5. **Commit Your Changes**: Commit with a clear message describing your updates.
-   ```sh
-   git commit -m 'Implemented new feature x.'
-   ```
-6. **Push to github**: Push the changes to your forked repository.
-   ```sh
-   git push origin new-feature-x
-   ```
-7. **Submit a Pull Request**: Create a PR against the original project repository. Clearly describe the changes and their motivations.
-8. **Review**: Once your PR is reviewed and approved, it will be merged into the main branch. Congratulations on your contribution!
-</details>
-
-<details closed>
-<summary>Contributor Graph</summary>
-<br>
-<p align="left">
-   <a href="https://github.com{/Kaushikmak/mentormate/}graphs/contributors">
-      <img src="https://contrib.rocks/image?repo=Kaushikmak/mentormate">
-   </a>
-</p>
-</details>
-
----
-
-## License
-
-Mentormate is protected under the [LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
-
----
-
-## Acknowledgments
-
-- Credit `contributors`, `inspiration`, `references`, etc.
-
-<div align="right">
-
-[![][back-to-top]](#top)
-
-</div>
-
-
-[back-to-top]: https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square
-
-
----
+			<!-- Runner.xcworkspace Submodule -->
+			<details>
+				<summary><b>Runner.xcworkspace</b></summary>
+				<blockquote>
+					<div class='directory-path' style='padding: 8px 0; color: #666;'>
+						<code><b>⦿ ios.Runner.xcworkspace</b></code>
+					<table style='width: 100%; border-collapse: collapse;'>
+					<thead>
+						<tr style='background-color: #f8f9fa;'>
+							<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
+							<th style='text-align: left; padding: 8px;'>Summary</th>
+						</tr>
+					</thead>
+						<tr style='border-bottom: 1px solid #eee;'>
+							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/Runner.xcworkspace/contents.xcworkspacedata'>contents.xcworkspacedata</a></b></td>
+							<td style='padding: 8px;'>Workspace data file that specifies the project's workspace settings in Xcode.</td>
+						</tr>
+					</table>
+				</blockquote>
+			</details>
+			<!-- RunnerTests Submodule -->
+			<details>
+				<summary><b>RunnerTests</b></summary>
+				<blockquote>
+					<div class='directory-path' style='padding: 8px 0; color: #666;'>
+						<code><b>⦿ ios.RunnerTests</b></code>
+					<table style='width: 100%; border-collapse: collapse;'>
+					<thead>
+						<tr style='background-color: #f8f9fa;'>
+							<th style='width: 30%; text-align: left; padding: 8px;'>File Name</th>
+							<th style='text-align: left; padding: 8px;'>Summary</th>
+						</tr>
+					</thead>
+						<tr style='border-bottom: 1px solid #eee;'>
+							<td style='padding: 8px;'><b><a href='https://github.com/Kaushikmak/mentormate/blob/master/ios/RunnerTests/Info.plist'>Info.plist</a></b></td>
+							<td style='padding: 8px;'>Property list file containing configuration information for the test target.</td>
+						</tr>
+					</table>
+				</blockquote>
+			</
